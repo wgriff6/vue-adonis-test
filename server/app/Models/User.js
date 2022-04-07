@@ -34,6 +34,11 @@ class User extends Model {
   tokens () {
     return this.hasMany('App/Models/Token')
   }
+
+  //tells lucid how to look up particular asscociated records using the 'projects' method
+  projects () {
+    return this.hasMany('App/Models/Project')
+  }
 }
 
 module.exports = User

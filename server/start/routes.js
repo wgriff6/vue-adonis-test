@@ -23,5 +23,8 @@ const Route = use('Route')
 Route.group(() => {
   Route.post('auth/register', 'UserController.register');
   Route.post('auth/login', 'UserController.login');
+
+  //middleware function below allows us to parse a JWT token from the request
+  Route.get('projects', 'ProjectController.index').middleware('auth'); //authenticates JWT token before running controller
 })
   .prefix('api/v0');
