@@ -26,5 +26,7 @@ Route.group(() => {
 
   //middleware function below allows us to parse a JWT token from the request
   Route.get('projects', 'ProjectController.index').middleware('auth'); //authenticates JWT token before running controller
+  Route.post('projects', 'ProjectController.create').middleware('auth');
+  Route.delete('projects/:id', 'ProjectController.destroy').middleware('auth');
 })
   .prefix('api/v0');
